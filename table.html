@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="table.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main show">
+            <div class="enter"><h2>enter a Multiplication Table <span>Number!...</span>  </h2></div>
+            <input class="input" type="text" placeholder="?">
+            <button id="submit">Submit</button>
+        </div>
+        <div class="panel hidden">
+            <button id="cancle">Cancle</button>
+        <div class="display"></div>
+        
+    </div>
+    </div>
+    <script>
+        let input=document.querySelector(".input")
+        let submit=document.querySelector("#submit")
+        let display=document.querySelector(".display")
+        let main=document.querySelector(".main")
+        let cancle=document.querySelector("#cancle")
+        let panel=document.querySelector(".panel")
+
+        submit.onclick=function(){
+            text=input.value
+            
+            if(text>=0  ){
+            innerText=''
+            for(let i=1;i<=10;i++){
+                innerText+=`${text} * ${i} = ${text*i}\n`
+            }
+            display.innerText=innerText
+            setTimeout(()=>{
+                panel.classList.add("show")
+                main.classList.remove("show")
+                main.classList.add("hidden")
+            },500) 
+            }
+        }
+
+        cancle.onclick=function(){
+            input.value=''
+            display.innerText=''
+            setTimeout(()=>{
+                panel.classList.remove("show")
+                main.classList.add("show")
+            },300)
+        }
+
+        
+    </script>
+</body>
+</html>
